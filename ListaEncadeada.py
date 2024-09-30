@@ -5,13 +5,24 @@ class Lista:
 
     def isEmpty(self):
         return self.head is None
+    
 
     def addInicio(self,valor):
+        if isinstance(valor, str):
+            valor=valor.upper()
+        if self.existe(valor):
+            print("Nome ja cadastrado")
+            return False
         novo=No(valor)
         novo.prox= self.head
         self.head=novo
 
     def addFinal(self,valor):
+        if isinstance(valor, str):
+            valor=valor.upper()
+        if self.existe(valor):
+            print("Nome ja cadastrado")
+            return False
         novo=No(valor)
         if self.head is None:
             novo.prox=self.head
@@ -31,7 +42,7 @@ class Lista:
             msg = msg +str(atual.getValor())+" "
             atual=atual.prox
             cont+=1
-        return msg + str(cont)
+        return msg +"qtd: " +str(cont)
     
     def existe(self,valor):
         atual=self.head
@@ -56,12 +67,31 @@ class Lista:
             atual=atual.prox
 
 teste=Lista()
+#adicionando no inicio
+teste.addInicio("Raimundo")
+teste.addInicio("Rommel")
 teste.addInicio(20)
+teste.addInicio("Raimundo")
+teste.addInicio(10)
 teste.addInicio(10)
 teste.addInicio(0)
-teste.addFinal(30)
+teste.addInicio("raimundo")
 print(teste)
-print(teste.existe(30))
-print(teste.existe(50))
+#adicionando no final
+teste.addFinal(30)
+teste.addFinal(30)
+teste.addFinal("Inacio")
+teste.addFinal("Inacio")
+print(teste)
+#executando o existe
+try:
+    a=int(input("digite numero: "))
+    print(teste.existe(a))
+except:
+    a=input("digite nome: ")
+    
+    print(teste.existe(a.upper()))
+
+#removendo os elementos
 teste.remove(30)
 print(teste)
