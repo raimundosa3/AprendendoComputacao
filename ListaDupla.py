@@ -62,6 +62,7 @@ class Lista:
                 else:
                     self.head=self.head.prox
                     self.head.ant=None
+                self.cont-=1
                 return True
             
             atual=self.head.prox
@@ -71,6 +72,7 @@ class Lista:
                     anterior.prox=atual.prox
                     if atual.prox is not None:
                         atual.prox.ant=anterior
+                    self.cont-=1
                     return True
                 anterior=atual
                 atual=atual.prox
@@ -82,7 +84,7 @@ class Lista:
         while atual is not None:
             msg = msg + str(atual.getValor())+" "
             atual=atual.prox
-        return msg + str(teste.cont)
+        return msg +"qtds: "+ str(teste.cont)
     
 teste=Lista()
 teste.add(20)
@@ -90,8 +92,8 @@ teste.add(10)
 teste.add(0)
 teste.add(30)
 print(teste)
-print(teste.existe(30))
-print(teste.existe(50))
+a=int(input("digite : "))
+print(teste.existe(a))
 teste.remove(30)
 print(teste)
 
@@ -99,5 +101,4 @@ print(teste)
 
 
         
-
 
