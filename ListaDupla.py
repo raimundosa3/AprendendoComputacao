@@ -1,11 +1,16 @@
 from DuploNo import *
 
-class Lista:
+class Lista2:
     def __init__(self):
         self.head=None
         self.cont=0
     
     def add(self,valor):
+        if isinstance(valor, str):
+            valor=valor.upper()
+        if self.existe(valor):
+            print("valor ja cadastrado")
+            return False
         self.cont+=1
         atual=self.head
         anterior=None
@@ -62,7 +67,6 @@ class Lista:
                 else:
                     self.head=self.head.prox
                     self.head.ant=None
-                self.cont-=1
                 return True
             
             atual=self.head.prox
@@ -72,7 +76,6 @@ class Lista:
                     anterior.prox=atual.prox
                     if atual.prox is not None:
                         atual.prox.ant=anterior
-                    self.cont-=1
                     return True
                 anterior=atual
                 atual=atual.prox
@@ -84,21 +87,13 @@ class Lista:
         while atual is not None:
             msg = msg + str(atual.getValor())+" "
             atual=atual.prox
-        return msg +"qtds: "+ str(teste.cont)
+        return msg + str(self.cont)
     
-teste=Lista()
-teste.add(20)
-teste.add(10)
-teste.add(0)
-teste.add(30)
-print(teste)
-a=int(input("digite : "))
-print(teste.existe(a))
-teste.remove(30)
-print(teste)
+
 
                         
 
 
         
+
 
