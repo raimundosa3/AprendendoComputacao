@@ -65,33 +65,3 @@ class Lista:
                 return True
             anterior=atual
             atual=atual.prox
-
-teste=Lista()
-#adicionando no inicio
-teste.addInicio("Raimundo")
-teste.addInicio("Rommel")
-teste.addInicio(20)
-teste.addInicio("Raimundo")
-teste.addInicio(10)
-teste.addInicio(10)
-teste.addInicio(0)
-teste.addInicio("raimundo")
-print(teste)
-#adicionando no final
-teste.addFinal(30)
-teste.addFinal(30)
-teste.addFinal("Inacio")
-teste.addFinal("Inacio")
-print(teste)
-#executando o existe
-try:
-    a=int(input("digite numero: "))
-    print(teste.existe(a))
-except:
-    a=input("digite nome: ")
-    
-    print(teste.existe(a.upper()))
-
-#removendo os elementos
-teste.remove(30)
-print(teste)
